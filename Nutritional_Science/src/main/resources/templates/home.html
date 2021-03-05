@@ -4,13 +4,126 @@
     <meta charset="UTF-8">
     <title>Главная страница</title>
 </head>
-<body>
-<h1>Привет! Ты на главной странице</h1>
-<a href="/calculation">Рассчитать калории</a>
-<br>
-<a href="/registration">Регистрация</a>
-<br>
-<a href="/login">Авторизация</a>
+<style>
+    a{
+        text-decoration: none;
+    }
+    .button{
+        position: static;
+        float: right;
+        border: 1px solid black;
+        border-radius: 1px;
+        text-align: right;
+        background-clip: border-box;
+        padding: 5px;
+        background-color: blue;
+        opacity: 0.3;
+    }
+    .button2{
+        float: right;
+        clear: none;
+        border: 1px solid black;
+        border-radius: 1px;
+        padding: 5px;
+        background-color: blue;
+        opacity: 0.3;
+    }
+    .caption {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: #000;
+    }
+    .caption span.border {
+        background-color: #111;
+        color: #fff;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+        border-radius: 5px;
+    }
+    .img-1 {
+        background-image: url("foto1.jpg");
+        min-height: 100%;
+    }
 
+    .img-1, .img-2, .img-3, .img-4, .img-5{
+        position: relative;
+        opacity: 0.65;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .img-2{
+        background-image: url("foto2.jpg");
+        min-height: 100%;
+    }
+    .img-3{
+        background-image: url("foto3.jpg");
+        min-height: 100%;
+    }
+    .img-4{
+        background-image: url("foto4.jpg");
+        min-height: 100%;
+    }
+    .img-5{
+        background-image: url("foto5.jpg");
+        min-height: 100%;
+    }
+    body, html {
+        height: 100%;
+        margin: 0;
+        font: 400 15px/1.8 "Lato", sans-serif;
+        color: #777;
+    }
+</style>
+<body link="red" vlink="#cecece" alink="#ff0000">
+
+<div class="img-1" style="" >
+    <div style="">
+        <a href="/registration" class="button">Регистрация</a>
+        <a href="/login" class="button2">Вход</a>
+    </div>
+    <div class="caption" >
+        <span class="border">Привет! Ты на главной странице</span>
+    </div>
+</div>
+<div style="color: #777; background-color: white; text-align: center; padding: 50px 80px; text-align: justify" >
+    <h3 style="text-align: center;">Чем мы занимаемся?</h3>
+    <p>Наш сайт был разработан для облегчения жизни - построение рациона питания. Для занятого человека такая вещь просто необходима, так как здоровье организма прямо пропорционально зависит от качества и количества питания. Так почему Вам выбирать нас, когда есть другие ресурсы со схожей тематикой? Ниже мы назовём три основных причины оставаться с нами. </p>
+</div>
+<div class="img-2" >
+    <div class="caption">
+        <span class="border">1. Еда, которую Вы хотите</span>
+    </div>
+</div>
+<div style="color: #777; background-color: white; text-align: center; padding: 50px 80px; text-align: justify" >
+    <h3 style="text-align: center;">Наши алгоритмы помогут вам подобрать питание, которое подойдет исключительно для Вас</h3>
+</div>
+<div class="img-3" >
+    <div class="caption">
+        <span class="border">2. Профессионализм</span>
+    </div>
+</div>
+<div style="color: #777; background-color: white; text-align: center; padding: 50px 80px; text-align: justify" >
+    <h3 style="text-align: center;">Нас курируют лучшие в своём деле - люди, которые уже несколько лет в области питания</h3>
+</div>
+<div class="img-4" >
+    <div class="caption">
+        <span class="border">3. Распланированность</span>
+    </div>
+</div>
+<div style="color: #777; background-color: white; text-align: center; padding: 50px 80px; text-align: justify" >
+    <h3 style="text-align: center;">Вы можете построить рацион питания не на один день, а на целую неделю</h3>
+</div>
+<div class="img-5" >
+    <div class="caption">
+        <span class="border">Заинтересовались?   <a href="/calculation"><b>Попробуйте!</b></a></span>
+    </div>
+</div>
+</div>
 </body>
 </html>
