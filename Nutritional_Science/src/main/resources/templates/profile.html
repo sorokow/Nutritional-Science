@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+</head>
+<body>
+    <p>Ваш вес: <span th:text="${weight}"> a</span> кг</p>
+    <p>Ваш рост: <span th:text="${height}"> a</span> см</p>
+    <p>Ваш возраст: <span th:text="${age}">a </span></p>
+    <p>Ваш пол: <span th:text="${isMan}">a </span></p>
+    <p>Ваша активность: <span th:text="${activity}"> a</span></p>
+
+    <br><br><br><br>
+    <a href="/settingProfile">Настройки</a>
+    <br>
+    <a href="/userHome">Вернуться на главную страницу</a>
+
+</body>
+</html>
