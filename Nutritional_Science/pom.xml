@@ -14,7 +14,7 @@
 	<name>Nutritional_Science</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>15</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -128,7 +128,6 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.2.0</version>
 				<configuration>
-					<sourcepath>\target\site\apidocs</sourcepath>
 				</configuration>
 			</plugin>
 		</plugins>

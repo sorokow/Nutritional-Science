@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню</title>
+</head>
+<style>
+
+    html {
+        height: 100%;
+    }
+
+    body{
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    table {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+        border-collapse: collapse;
+        color: #686461;
+        margin: 15px 40px 15px 15px;
+    }
+    caption {
+        padding: 10px;
+        color: white;
+        background: #8FD4C1;
+        font-size: 18px;
+        text-align: left;
+        font-weight: bold;
+    }
+    th {
+        border-bottom: 3px solid #B9B29F;
+        padding: 10px;
+        text-align: left;
+    }
+    td {
+        padding: 10px;
+    }
+    tr:nth-child(odd) {
+        background: white;
+    }
+    tr:nth-child(even) {
+        background: #E8E6D1;
+    }
+    .img-1{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -moz-background-size: 100%; /* Firefox 3.6+ */
+        -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+        -o-background-size: 100%; /* Opera 9.6+ */
+        background-size: 100%;
+
+    }
+
+    .d1{
+        color: #111111;
+        margin-left: 20px;
+        text-align: left;
+        background-color: #686461;
+        border-radius: 10px;
+        padding: 10px 25px;
+        text-decoration: none;
+        font-weight: bold;
+
+    }
+
+    h2{
+        font-weight: bold;
+        text-align: center;
+        font-size: 45px;
+    }
+</style>
+<body>
+<div class="img-1">
+    <br>
+<p><a class="d1" href="/userHome">Страница пользователя</a></p>
+
+    <h2>Понедельник</h2>
+    <table border="1">
+        <tr>
+            <th>Прием пищи</th>
+            <th>Что кушать</th>
+            <th>Сколько кушать (в граммах)</th>
+            <th>Кол-во калорий</th>
+        </tr>
+        <tr th:each="text : ${mondeyList}">
+            <td th:text="${text.getFoodType()}">Onions</td>
+            <td th:text="${text.getName()}">Onions</td>
+            <td th:text="${text.getQuantity()}">Onions</td>
+            <td th:text="${text.getCalories()}">Onions</td>
+        </tr>
+    </table>
+
+    <h2>Вторник</h2>
+    <table border="1">
+        <tr>
+            <th>Прием пищи</th>
+            <th>Что кушать</th>
+            <th>Сколько кушать (в граммах)</th>
+            <th>Кол-во калорий</th>
+        </tr>
+        <tr th:each="text : ${tuesdayList}">
+            <td th:text="${text.getFoodType()}">Onions</td>
+            <td th:text="${text.getName()}">Onions</td>
+            <td th:text="${text.getQuantity()}">Onions</td>
+            <td th:text="${text.getCalories()}">Onions</td>
+        </tr>
+    </table>
+
+    <h2>Среда</h2>
+    <table border="1">
+        <tr>
+            <th>Прием пищи</th>
+            <th>Что кушать</th>
+            <th>Сколько кушать (в граммах)</th>
+            <th>Кол-во калорий</th>
+        </tr>
+        <tr th:each="text : ${wednesdayList}">
+            <td th:text="${text.getFoodType()}">Onions</td>
+            <td th:text="${text.getName()}">Onions</td>
+            <td th:text="${text.getQuantity()}">Onions</td>
+            <td th:text="${text.getCalories()}">Onions</td>
+        </tr>
+    </table>
+
+    <h2>Четверг</h2>
+    <table border="1">
+        <tr>
+            <th>Прием пищи</th>
+            <th>Что кушать</th>
+            <th>Сколько кушать (в граммах)</th>
+            <th>Кол-во калорий</th>
+        </tr>
+        <tr th:each="text : ${thursdayList}">
+            <td th:text="${text.getFoodType()}">Onions</td>
+            <td th:text="${text.getName()}">Onions</td>
+            <td th:text="${text.getQuantity()}">Onions</td>
+            <td th:text="${text.getCalories()}">Onions</td>
+        </tr>
+    </table>
+
+    <h2>Пятница</h2>
+    <table border="1">
+        <tr>
+            <th>Прием пищи</th>
+            <th>Что кушать</th>
+            <th>Сколько кушать (в граммах)</th>
+            <th>Кол-во калорий</th>
+        </tr>
+        <tr th:each="text : ${fridayList}">
+            <td th:text="${text.getFoodType()}">Onions</td>
+            <td th:text="${text.getName()}">Onions</td>
+            <td th:text="${text.getQuantity()}">Onions</td>
+            <td th:text="${text.getCalories()}">Onions</td>
+        </tr>
+    </table>
+
+    <h2>Суббота</h2>
+    <table border="1">
+        <tr>
+            <th>Прием пищи</th>
+            <th>Что кушать</th>
+            <th>Сколько кушать (в граммах)</th>
+            <th>Кол-во калорий</th>
+        </tr>
+        <tr th:each="text : ${saturdayList}">
+            <td th:text="${text.getFoodType()}">Onions</td>
+            <td th:text="${text.getName()}">Onions</td>
+            <td th:text="${text.getQuantity()}">Onions</td>
+            <td th:text="${text.getCalories()}">Onions</td>
+        </tr>
+    </table>
+
+    <h2>Воскресенье</h2>
+    <table border="1">
+        <tr>
+            <th>Прием пищи</th>
+            <th>Что кушать</th>
+            <th>Сколько кушать (в граммах)</th>
+            <th>Кол-во калорий</th>
+        </tr>
+        <tr th:each="text : ${sundayList}">
+            <td th:text="${text.getFoodType()}">Onions</td>
+            <td th:text="${text.getName()}">Onions</td>
+            <td th:text="${text.getQuantity()}">Onions</td>
+            <td th:text="${text.getCalories()}">Onions</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

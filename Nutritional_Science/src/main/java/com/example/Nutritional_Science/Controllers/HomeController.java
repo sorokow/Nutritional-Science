@@ -4,8 +4,8 @@ package com.example.Nutritional_Science.Controllers;
 import com.example.Nutritional_Science.Entity.UserParameters;
 import com.example.Nutritional_Science.Service.UserParametersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -17,6 +17,7 @@ public class HomeController {
     @Autowired
     UserParametersService userParametersService;
 
+
     @GetMapping("/")
     public String home() {
         return "home";
@@ -27,15 +28,18 @@ public class HomeController {
         return "registration";
     }
 
+
     @GetMapping("/calculation")
     public String calc(@ModelAttribute UserParameters userParameters, @PathParam("isMan") String isMan, Model model){
-//        System.out.println(isMan);
+
         if(userParameters!=null && isMan!=null){
             if(isMan.equals("true"))
                 userParameters.setMan(true);
-            model.addAttribute("weight",userParameters.getWeight());
-            model.addAttribute("height",userParameters.getHeight());
-            model.addAttribute("age",userParameters.getAge());
+
+                model.addAttribute("weight", userParameters.getWeight());
+                model.addAttribute("height", userParameters.getHeight());
+                model.addAttribute("age", userParameters.getAge());
+
 
             if(!userParameters.isMan())
                 model.addAttribute("chW", true);
@@ -60,7 +64,6 @@ public class HomeController {
                     break;
             }
         }
-
         if(userParametersService.needCallories(userParameters) == -2){
             model.addAttribute("result", "");
         }
@@ -72,6 +75,13 @@ public class HomeController {
         }
         return "calculation";
     }
-
-
 }
+
+
+
+
+
+
+
+
+

@@ -2,13 +2,217 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Расчёт</title>
 </head>
+<style th:inline="text">
+
+    body{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .img-1{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -moz-background-size: 100%; /* Firefox 3.6+ */
+        -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+        -o-background-size: 100%; /* Opera 9.6+ */
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .forma {
+        font-family: 'Ubuntu', 'Lato', sans-serif;
+        font-weight: 400;
+
+        width: 300px;
+        position: relative;
+        margin: 60px auto 30px;
+        padding: 10px;
+        overflow: hidden;
+
+
+        background: #317D80;
+        border-radius: 0.4em;
+        border: 1px solid #191919;
+        box-shadow:
+                inset 0 0 2px 1px rgba(255,255,255,0.08),
+                0 16px 10px -8px rgba(0, 0, 0, 0.6);
+    }
+    .forma label {
+        width: 100%;
+        float: left;
+        padding-top: 9px;
+
+        color: #ddd;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 1px 0 #000;
+        text-indent: 10px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .forma input[type=text],
+    .forma input[type=password] {
+        width: 50%;
+        float: right;
+        padding: 8px 5px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        border: 1px solid #000;
+        box-shadow:
+                0 1px 0 rgba(255,255,255,0.1);
+        border-radius: 3px;
+        font-family: 'Ubuntu', 'Lato', sans-serif;
+
+    }
+
+    .forma input[type=text]:hover,
+    .forma input[type=password]:hover,
+    .forma label:hover ~ input[type=text],
+    .forma label:hover ~ input[type=password] {
+        background: #B7B9BA;
+    }
+
+    .forma input[type=text]:focus,
+    .forma input[type=password]:focus {
+        box-shadow: inset 0 0 2px #B7B9BA;
+        background: #B7B9BA;
+        border-color: #51cbee;
+        outline: none;
+    }
+    .forma p:nth-child(3),
+    .forma p:nth-child(4) {
+        float: left;
+        width: 50%;
+    }
+    .forma label[for=remember] {
+        width: auto;
+        float: none;
+        display: inline-block;
+        text-transform: capitalize;
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 0px;
+        text-indent: 2px;
+    }
+
+    .forma input[type=checkbox] {
+        margin-left: 10px;
+        vertical-align: middle;
+    }
+    .forma input[type=submit],
+    .adr{
+
+        width: 100%;
+        padding: 8px 5px;
+        border: 1px solid #0273dd;
+        border: 1px solid rgba(0,0,0,0.4);
+        box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 10px 10px rgba(255,255,255,0.1);
+        border-radius: 3px;
+        background: #38a6f0;
+        cursor:pointer;
+
+        font-family: 'Ubuntu', 'Lato', sans-serif;
+        color: white;
+        font-weight: 700;
+        font-size: 15px;
+    }
+
+    .forma input[type=submit]:hover, .adr {
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
+
+    .forma input[type=submit]:active, .adr {
+        background: #287db5;
+        box-shadow: inset 0 0 3px rgba(0,0,0,0.6);
+        border-color: #000; /* Fallback */
+        border-color: rgba(0,0,0,0.9);
+    }
+
+    .no-boxshadow .forma input[type=submit]:hover, .adr {
+        background: #2a92d8;
+    }
+    .forma:after {
+
+        content: "";
+        height: 1px;
+        width: 33%;
+        position: absolute;
+        left: 20%;
+        top: 0;
+
+        background: linear-gradient(left, transparent, #444, #b6b6b8, #444, transparent);
+    }
+    .forma:before {
+
+        content: "";
+        width: 8px;
+        height: 5px;
+        position: absolute;
+        left: 34%;
+        top: -7px;
+
+        /* Styles */
+        border-radius: 50%;
+        box-shadow: 0 0 6px 4px #fff;
+    }
+    .forma p:nth-child(1):before{
+        content: "";
+        width: 250px;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        left: 45px;
+
+        transform: rotate(75deg);
+        background: linear-gradient(50deg, rgba(255,255,255,0.15), rgba(0,0,0,0));
+        pointer-events: none;
+    }
+    .no-pointerevents .forma p:nth-child(1):before {
+        display: none;
+    }
+    body{
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    select{
+        margin: 15px 0;
+        width: 100%;
+        float: left;
+        padding: 9px;
+        color: #000;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-indent: 10px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .adr{
+        width: 100%;
+        background-color: #001AFF;
+    }
+
+</style>
 <body>
+<div class="img-1" th:style="'background-image: url(../images/update.jpg);'">
 
-<h2><output th:text="${result}"></output></h2>
+<h2 style="font-size: 65px; text-align: center; background-color: #dddddd"><output th:text="${result}"></output></h2>
 
-<form action="/calculation" method="get">
+<form action="/calculation" method="get" class="forma">
     <h3>Изменение данных</h3>
 
 
@@ -52,14 +256,14 @@
 
 
     <br><br>
-    <div><input type="submit" value="Посчитать необходимое количество каллорий"/></div>
+    <div><input type="submit" value="Расчитать"/></div>
+    <br>
+    <div  style="text-align: center"><a class="adr" style="text-decoration: none" href="/registration">Регистрация</a></div>
+    <br>
 
 
 </form>
 
-
-edsafsafaad
-окей, зарегаться
-<a href="/registration">Регистрация</a>
+</div>
 </body>
 </html>

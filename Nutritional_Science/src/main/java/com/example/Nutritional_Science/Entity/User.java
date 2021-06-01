@@ -1,16 +1,9 @@
 package com.example.Nutritional_Science.Entity;
 
-import com.sun.istack.NotNull;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.lang.NonNull;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Getter
-@Setter
 public class User {
 
     @Id
@@ -37,5 +30,61 @@ public class User {
     private UserParameters userParameters;
 
     public User() {
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public UserParameters getUserParameters() {
+        return userParameters;
+    }
+
+    public void setUserParameters(UserParameters userParameters) {
+        this.userParameters = userParameters;
     }
 }

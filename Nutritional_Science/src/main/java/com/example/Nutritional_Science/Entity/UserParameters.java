@@ -2,7 +2,6 @@ package com.example.Nutritional_Science.Entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 public class UserParameters {
@@ -28,6 +27,16 @@ public class UserParameters {
 
     @NotNull
     private double activity;
+
+    private double coefficient;
+
+    public double getCoefficient() {
+        return coefficient;
+    }
+
+    public void setCoefficient(double coefficient) {
+        this.coefficient = coefficient;
+    }
 
     public void setId(long id) {
         this.id = id;

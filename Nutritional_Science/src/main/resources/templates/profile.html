@@ -6,18 +6,77 @@
     <meta charset="UTF-8">
     <title>Профиль</title>
 </head>
-<body>
-    <p>Ваш вес: <span th:text="${weight}"> a</span> кг</p>
-    <p>Ваш рост: <span th:text="${height}"> a</span> см</p>
-    <p>Ваш возраст: <span th:text="${age}">a </span></p>
-    <p>Ваш пол: <span th:text="${isMan}">a </span></p>
-    <p>Ваша активность: <span th:text="${activity}"> a</span></p>
+<style th:inline="text">
 
-    <br><br><br><br>
-    <a href="/settingProfile">Настройки</a>
-    <br>
-    <a href="/userHome">Вернуться на главную страницу</a>
-    fzfxxx
+    body{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .img-1{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -moz-background-size: 100%; /* Firefox 3.6+ */
+        -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+        -o-background-size: 100%; /* Opera 9.6+ */
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .stands{
+        font-family: 'Ubuntu', 'Lato', sans-serif;
+
+        width: 60%;
+        position: relative;
+        margin: 60px auto 30px;
+        padding: 10px;
+        overflow: hidden;
+        font-weight: bold;
+        background: #F5F55F;
+        text-align: center;
+        border-radius: 0.4em;
+        border: 1px solid #191919;
+        box-shadow:
+                inset 0 0 2px 1px rgba(255,255,255,0.08),
+                0 16px 10px -8px rgba(0, 0, 0, 0.6);
+    }
+
+    .d1{
+        color: #111111;
+        margin-left: 20px;
+        text-align: center;
+        background-color: darkorange;
+        border-radius: 10px;
+        padding: 10px 10px;
+        text-decoration: none;
+
+    }
+</style>
+<body>
+<div class="img-1" th:style="'background-image: url(../images/profile.jpg);'">
+
+
+
+        <div class="stands">
+            <h2 th:text="'Ваша норма ' + ${calories} + ' калорий в сутки'">coefficient</h2>
+            <p>Ваш вес: <span th:text="${weight}"> a</span> кг</p>
+            <p>Ваш рост: <span th:text="${height}"> a</span> см</p>
+            <p>Ваш возраст: <span th:text="${age}">a </span></p>
+            <p>Ваш пол: <span th:text="${isMan}">a </span></p>
+            <p>Ваша активность: <span th:text="${activity}"> a</span></p>
+            <br>
+            <a class="d1" href="/settingProfile">Настройки</a>
+            <a class="d1" href="/userHome">Вернуться на главную страницу</a>
+            <br><br>
+        </div>
+
+
 
 </body>
 </html>

@@ -43,9 +43,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/errorRegistration").permitAll()
                 .antMatchers("/registrationAction").permitAll()
                 .antMatchers("/wrongData").permitAll()
+                .antMatchers("/images/*").permitAll()
                 .antMatchers("/login").permitAll()
+                // запрос /week подразумевается (для авторизованных пользователей)
                 .anyRequest().authenticated()
-
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -54,8 +55,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutSuccessUrl("/")
-                .permitAll();
-
+                .permitAll()
+                // авторизация через cookies (хранятся 24 часа)
+                .and()
+                .logout().deleteCookies("JSESSIONID")
+                .and()
+                .rememberMe().key("uniqueAndSecret").tokenValiditySeconds(86400);
 
     }
 

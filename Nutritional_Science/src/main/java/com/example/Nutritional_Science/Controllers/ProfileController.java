@@ -1,20 +1,17 @@
 package com.example.Nutritional_Science.Controllers;
 
-import com.example.Nutritional_Science.Entity.User;
 import com.example.Nutritional_Science.Entity.UserParameters;
+import com.example.Nutritional_Science.Service.FoodMenuService;
 import com.example.Nutritional_Science.Service.UserParametersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.websocket.server.PathParam;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -23,14 +20,21 @@ public class ProfileController {
     @Autowired
     UserParametersService userParametersService;
 
+    @Autowired
+    FoodMenuService foodMenuService;
+
     @GetMapping("/profile")
     public String profile(Model model){
         List<String> parametersList = userParametersService.getParameters(SecurityContextHolder.getContext().getAuthentication().getName());
-
         if(parametersList!=null) {
             model.addAttribute("weight", parametersList.get(0));
             model.addAttribute("height", parametersList.get(1));
             model.addAttribute("age", parametersList.get(2));
+            if(foodMenuService.getCalories() >= 0) {
+                model.addAttribute("calories", foodMenuService.getCalories());
+            }
+
+
             if(parametersList.get(3).equals("false"))
                 model.addAttribute("isMan", "Женский");
             else
@@ -93,7 +97,6 @@ public class ProfileController {
 
         return "settingProfile";
     }
-
 
     @PostMapping("/updateDataAboutUser")
     public String updateDataAboutUser(@ModelAttribute UserParameters userParameters,

@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class NutritionalScienceApplication {
-//Главный класс для запуска
-	public static void main(String[] args) {
-		SpringApplication.run(NutritionalScienceApplication.class, args);
-	}
+    //Главный класс для запуска
+    public static void main(String[] args) {
+        SpringApplication.run(NutritionalScienceApplication.class, args);
+    }
 
 }

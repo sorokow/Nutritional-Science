@@ -7,8 +7,6 @@ import com.example.Nutritional_Science.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class UserService {
 
@@ -41,19 +39,8 @@ public class UserService {
         }
     }
     public UserParameters findUserParametersByLogin(String login) {
-//        List<User> list = (List<User>) userRepository.findAll();
-//        User user = null;
-//        for(User u:list){
-//            if(u.getLogin().equals(login)){
-//                user = u;
-//                return u.getUserParameters();
-//            }
-//        }
-
         User user = userRepository.findByLogin(login);
         return user.getUserParameters();
-
-       // return null;
     }
 
     public User findUserByLogin(String login){

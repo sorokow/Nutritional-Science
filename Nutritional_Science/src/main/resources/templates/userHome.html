@@ -1,14 +1,69 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style th:inline="text">
+
+    h1{
+        margin-left: 4vw;
+        color: #FFBC00;
+    }
+
+    body{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .img-1{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -moz-background-size: 100%; /* Firefox 3.6+ */
+        -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+        -o-background-size: 100%; /* Opera 9.6+ */
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    a.button{
+        color:#FFD14E;
+        padding: 20px 30px;
+        width:100px;
+        text-decoration:none;
+        text-align:center;
+        margin: 100px 4vw;
+        background-image: linear-gradient(to left,transparent,transparent 50%,#FFD14E 50%,#FFD14E);
+        background-position: 100% 0;
+        background-size: 200% 100%;
+        transition: all .25s ease-in;
+        font: 400 18px tahoma;
+        border: 5px solid #FFD14E;
+    }
+    a.button:hover {
+        background-position: 0 0;
+        color:#fff;
+    }
+</style>
 <body>
-<h1>Вы на главной странице АВТОРИЗОВАННОГО пользователя!</h1>
-<br>
-<a href="/profile">Профиль</a>
-<br>
-<a href="/logout">Выйти из системы</a>
+
+<div class="img-1" th:style="'background-image: url(../images/profilePhoto.jpg);'">
+    <h1>Вы на главной странице авторизованного пользователя!</h1>
+    <br><br><br><br><br><br><br><br>
+    <a href="/profile" class="button">Профиль</a>
+
+    <a href="/logout" class="button">Выйти из системы</a>
+
+    <a href="/week" class="button">Меню на неделю</a>
+</div>
+
 </body>
 </html>
